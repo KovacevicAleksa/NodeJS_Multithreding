@@ -1,7 +1,7 @@
-const { parentPort } = require("worker_threads");
+const { parentPort, workerData } = require("worker_threads");
 
 let counter = 0;
-for (i = 0; i < 2_000_000_000; i++) {
+for (let i = workerData.start; i < workerData.end; i++) {
   counter++;
 }
 
